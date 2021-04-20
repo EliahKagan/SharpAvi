@@ -2,16 +2,15 @@
 // https://github.com/Corey-M/NAudio.Lame
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
-using SharpAvi;
-using SharpAvi.Codecs;
+using System.Runtime.Loader;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace SharpAvi.Codecs
 {
@@ -63,25 +62,38 @@ namespace SharpAvi.Codecs
             lameFacadeType = facadeAsm.GetType(typeof(Mp3AudioEncoderLame).Namespace + ".Runtime.LameFacadeImpl");
         }
 
+        // CodeDom doesn't support compilation on .NET Core / .NET 5+. So use
+        // Roslyn instead. For general information on this technique, see:
+        //  - https://stackoverflow.com/a/51128354 by Michael P
+        //  - https://stackoverflow.com/a/22977158 by Tomas Matousek
+        //  - https://github.com/joelmartinez/dotnet-core-roslyn-sample by Joel Martinez
+        //  - https://gist.github.com/GeorgDangl/4a9982a3b520f056a9e890635b3695e0 by Georg Dangl
         private static Assembly GenerateLameFacadeAssembly(string lameDllName)
         {
             var thisAsm = typeof(Mp3AudioEncoderLame).Assembly;
-            var compiler = new Microsoft.CSharp.CSharpCodeProvider();
-            var compilerOptions = new System.CodeDom.Compiler.CompilerParameters()
-            {
-                 GenerateInMemory = true,
-                 GenerateExecutable = false,
-                 IncludeDebugInformation = false,
-                 CompilerOptions = "/optimize",
-                 ReferencedAssemblies = {"mscorlib.dll", thisAsm.Location}
-            };
+
             var source = GetLameFacadeAssemblySource(lameDllName, thisAsm);
-            var compilerResult = compiler.CompileAssemblyFromSource(compilerOptions, source);
-            if (compilerResult.Errors.HasErrors)
-            {
+
+            var references = Array.ConvertAll(
+                new[] { typeof(object).Assembly, thisAsm },
+                asm => MetadataReference.CreateFromFile(asm.Location));
+
+            var options = new CSharpCompilationOptions(
+                outputKind: OutputKind.DynamicallyLinkedLibrary,
+                optimizationLevel: OptimizationLevel.Release);
+
+            var compilation = CSharpCompilation.Create(
+                assemblyName: Guid.NewGuid().ToString(), // Any name not in use.
+                syntaxTrees: new[] { CSharpSyntaxTree.ParseText(source) },
+                references: references,
+                options: options);
+
+            using var memory = new MemoryStream();
+            if (!compilation.Emit(memory).Success) {
                 throw new Exception("Could not generate LAME facade assembly.");
             }
-            return compilerResult.CompiledAssembly;
+            memory.Seek(0, SeekOrigin.Begin);
+            return AssemblyLoadContext.Default.LoadFromStream(memory);
         }
 
         private static string GetLameFacadeAssemblySource(string lameDllName, Assembly resourceAsm)
