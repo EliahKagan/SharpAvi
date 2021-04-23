@@ -22,7 +22,7 @@ namespace SharpAvi.Sample
 #else
             var is64BitProcess = IntPtr.Size * 8 == 64;
 #endif
-            var dllName = string.Format("lameenc{0}.dll", is64BitProcess ? "64" : "32");
+            var dllName = string.Format("libmp3lame.{0}.dll", is64BitProcess ? "64" : "32");
             Mp3AudioEncoderLame.SetLameDllLocation(Path.Combine(asmDir, dllName));
         }
     }
