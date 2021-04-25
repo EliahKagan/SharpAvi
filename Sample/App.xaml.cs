@@ -9,6 +9,10 @@ namespace SharpAvi.Sample
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+    /// <remarks>
+    /// Sets the path to the LAME DLL.
+    /// Find information about and downloads of the LAME project at https://lame.sourceforge.io
+    /// </remarks>
     public partial class App : Application
     {
         protected override void OnStartup(StartupEventArgs e)

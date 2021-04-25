@@ -19,7 +19,7 @@ namespace SharpAvi.Codecs
     /// </summary>
     /// <remarks>
     /// The class is designed for using only a single instance at a time.
-    /// Find information about and downloads of the LAME project at http://lame.sourceforge.net/
+    /// Find information about and downloads of the LAME project at https://lame.sourceforge.io
     /// </remarks>
     public partial class Mp3AudioEncoderLame : IAudioEncoder, IDisposable
     {

@@ -93,6 +93,7 @@
                             <RowDefinition/>
                             <RowDefinition Height="7"/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Source</Label>
@@ -123,6 +124,13 @@
                                     Value="{Binding AudioQuality}"
                                     Width="100" Margin="7,0"/>
                         </StackPanel>
+
+                        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Hyperlink NavigateUri="https://lame.sourceforge.io"
+                                       RequestNavigate="Hyperlink_RequestNavigate">
+                                using LAME encoding engine (for MP3)
+                            </Hyperlink>
+                        </Label>
                     </Grid>
                 </Expander>
                 <CheckBox Foreground="DarkGray"

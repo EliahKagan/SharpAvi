@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Interop;
+using System.Windows.Navigation;
 using NAudio.Wave;
 using SharpAvi.Codecs;
 
@@ -193,6 +195,16 @@ namespace SharpAvi.Sample
             {
                 Folder = dlg.SelectedPath;
             }
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo {
+                FileName = e.Uri.AbsoluteUri,
+                UseShellExecute = true
+            });
+
+            e.Handled = true;
         }
 
         IntPtr System.Windows.Forms.IWin32Window.Handle
