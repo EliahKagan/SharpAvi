@@ -1,7 +1,9 @@
-This is a port, of [SharpAvi](https://github.com/baSSiLL/SharpAvi)
+**SharpAvi.Net5** is a port, of [SharpAvi](https://github.com/baSSiLL/SharpAvi)
 ([nuget](https://www.nuget.org/packages/SharpAvi/)) by Vasili Maslov, to .NET 5
 (`net5-windows`). The minor changes done here to port it were done by Eliah
 Kagan.
+
+[SharpAvi.Net5 can also be downloaded as a NuGet package.](https://www.nuget.org/packages/SharpAvi.Net5)
 
 If you're targeting .NET 5 but you don't need Motion JPEG or MP3 audio, you
 should likely use
