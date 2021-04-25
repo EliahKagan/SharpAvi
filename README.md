@@ -1,5 +1,7 @@
 This is a port of [SharpAvi](https://github.com/baSSiLL/SharpAvi) ([nuget](https://www.nuget.org/packages/SharpAvi/)) to .NET 5 (`net5-windows`). SharpAvi is written by Vasili Maslov. The minor changes done here to port it were done by Eliah Kagan. See [`README-NET5.md`](README-NET5.md) for details about this port.
 
+The original SharpAvi readme follows.
+
 ***
 
 **SharpAvi** is a simple .NET library for creating video files in AVI format.
