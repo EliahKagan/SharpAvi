@@ -13,10 +13,10 @@
     <StartupObject />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>SharpAvi.Net5</PackageId>
-    <Version>2.1.2-rc</Version>
+    <Version>2.1.2-rc.2</Version>
     <Authors>Eliah Kagan</Authors>
     <PackageDescription>
-      This is a port of https://github.com/baSSiLL/SharpAvi to .NET 5 (net5-windows). SharpAvi itself is written by Vasili Maslov. The minor changes done here to port it were done by Eliah Kagan. See https://github.com/EliahKagan/SharpAvi/blob/net5/README-NET5.md for details.
+      This is a port of https://github.com/baSSiLL/SharpAvi to .NET 5 and higher (net5-windows). SharpAvi itself is written by Vasili Maslov. The minor changes done here to port it were done by Eliah Kagan. See https://github.com/EliahKagan/SharpAvi/blob/net5/README-NET5.md for details.
 
       To target the .NET Framework 3.5/4.5, use the official SharpAvi package https://www.nuget.org/packages/SharpAvi instead. If you're targeting .NET 5 but don't need Motion JPEG or MP3 audio, consider https://www.nuget.org/packages/SharpAvi.NetStandard, a port to .NET Standard 2.0 by Duc Vu Nguyen.
 
@@ -37,6 +37,7 @@
     <PackageReleaseNotes>Ported to net5-windows (preserving Motion JPEG and MP3 support).</PackageReleaseNotes>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DefineConstants>TRACE;DEBUG;FX45</DefineConstants>
@@ -331,12 +332,12 @@
     <Compile Remove="Output\SequentialInvoker35.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.9.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\LICENSE.md">
+    <Content Include="..\*.md">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+      <PackagePath>\</PackagePath>
+    </Content>
   </ItemGroup>
 </Project>

@@ -1,23 +1,21 @@
 **SharpAvi.Net5** is a port, of [SharpAvi](https://github.com/baSSiLL/SharpAvi)
 ([nuget](https://www.nuget.org/packages/SharpAvi/)) by Vasili Maslov, to .NET 5
-(`net5-windows`). The minor changes done here to port it were done by Eliah
-Kagan.
+and higher (`net5-windows`). The minor changes done here to port it were done
+by Eliah Kagan.
 
-[SharpAvi.Net5 can also be downloaded as a NuGet package.](https://www.nuget.org/packages/SharpAvi.Net5)
+[SharpAvi.Net5 is available as a NuGet package.](https://www.nuget.org/packages/SharpAvi.Net5)
 
-If you're targeting .NET 5 but you don't need Motion JPEG or MP3 audio, you
-should likely use
-[SharpAvi.NetStandard](https://github.com/nguyenvuduc/SharpAvi)
-([nuget](https://www.nuget.org/packages/SharpAvi.NetStandard/)) instead, which
-is an earlier port, by Duc Vu Nguyen, to .NET Standard 2.0. Compared to this
-port, that one:
+If you're targeting .NET 5+ but you don't need Motion JPEG or MP3 audio, you
+may prefer [SharpAvi.NetStandard](https://github.com/nguyenvuduc/SharpAvi)
+([nuget](https://www.nuget.org/packages/SharpAvi.NetStandard/)), which is an
+earlier port, by Duc Vu Nguyen, to .NET Standard 2.0. Compared to this port,
+that one:
 
-- can be consumed from a wider variety of targets (not just .NET 5).
-- has a longer history of use, so it may have fewer bugs.
+- can be consumed from a wider variety of targets (not just .NET 5 and higher).
 - does not depend on Windows Presentation Foundation.
 - pulls in fewer NuGet dependencies, because it does not use Roslyn.
 
-The circumstances when you might prefer to use this are if you want:
+The main situations when you might prefer to use this are if you want:
 
 - Motion JPEG video. SharpAvi depends on WPF to encode Motion JPEG, which
   appears to be why SharpAvi.NetStandard omits this functionality.

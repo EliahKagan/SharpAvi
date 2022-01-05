@@ -1,4 +1,4 @@
-[**SharpAvi.Net5**](https://www.nuget.org/packages/SharpAvi.Net5) is a port of [SharpAvi](https://github.com/baSSiLL/SharpAvi) ([nuget](https://www.nuget.org/packages/SharpAvi/)) to .NET 5 (`net5-windows`). SharpAvi is written by Vasili Maslov. The minor changes done here to port it were done by Eliah Kagan. See [`README-NET5.md`](README-NET5.md) for details about this port.
+[**SharpAvi.Net5**](https://www.nuget.org/packages/SharpAvi.Net5) is a port of [SharpAvi](https://github.com/baSSiLL/SharpAvi) ([nuget](https://www.nuget.org/packages/SharpAvi/)) to .NET 5 and higher (`net5-windows`). SharpAvi is written by Vasili Maslov. The minor changes done here to port it were done by Eliah Kagan. See [`README-NET5.md`](https://github.com/EliahKagan/SharpAvi/blob/net5/README-NET5.md) for details about this port.
 
 The original SharpAvi readme follows.
 
