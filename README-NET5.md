@@ -1,3 +1,7 @@
+*Note: After the upstream SharpAvi project adds support for .NET 5/6, no
+further versions of this unofficial port are planned, and users of this port
+should strongly consider migrating to the upstream (official) version.*
+
 **SharpAvi.Net5** is a port, of [SharpAvi](https://github.com/baSSiLL/SharpAvi)
 ([nuget](https://www.nuget.org/packages/SharpAvi/)) by Vasili Maslov, to .NET 5
 and higher (`net5-windows`). The minor changes done here to port it were done
@@ -32,7 +36,7 @@ Porting was accomplished by:
    Assistant](https://aka.ms/dotnet-upgrade-assistant-overview).
 2. Rewriting a single short
    method&mdash;`SharpAvi.Codecs.GenerateLameFacadeAssembly` in
-   [`SharpAvi/Codecs/Mp3AudioEncoderLame.cs`](https://github.com/EliahKagan/SharpAvi/blob/master/SharpAvi/Codecs/Mp3AudioEncoderLame.cs)&mdash;to
+   [`SharpAvi/Codecs/Mp3AudioEncoderLame.cs`](https://github.com/EliahKagan/SharpAvi/blob/2.1.2-net5/SharpAvi/Codecs/Mp3AudioEncoderLame.cs#L65)&mdash;to
    use Roslyn instead CodeDom for runtime code generation.
 
 Unfortunately, this code generation task with Roslyn is markedly slower than it
@@ -42,8 +46,7 @@ This port is released under the same license as SharpAvi itself (the MIT
 license).
 
 Finally, you may wish to consider using [Jérémy Ansel's modified
-version](https://github.com/JeremyAnsel/SharpAvi/tree/net_standard) instead of
+version](https://github.com/JeremyAnsel/SharpAvi/tree/net_standard) (proposed
+in [this pull request](https://github.com/baSSiLL/SharpAvi/pull/27)) instead of
 this one. That port to .NET Standard 2.0 retains Motion JPEG support by
-removing its dependence on WPF. [Those changes are proposed
-upstream](https://github.com/baSSiLL/SharpAvi/pull/27) (but the pull request
-has been open for over a year, as of this writing).
+removing its dependence on WPF.
