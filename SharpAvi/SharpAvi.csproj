@@ -13,14 +13,14 @@
     <StartupObject />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>SharpAvi.Net5</PackageId>
-    <Version>2.2.1-rc</Version>
+    <Version>2.2.1</Version>
     <Authors>Eliah Kagan</Authors>
     <PackageDescription>
       [Note: After the upstream SharpAvi project adds support for .NET 5/6, no further versions of this unofficial port are planned, and users of this port should strongly consider migrating to the upstream (official) version.]
 
       This is a port of https://github.com/baSSiLL/SharpAvi to .NET 5 and higher (net5-windows). SharpAvi itself is written by Vasili Maslov. The minor changes done here to port it were done by Eliah Kagan. See https://github.com/EliahKagan/SharpAvi/blob/net5/README-NET5.md for details.
 
-      To target the .NET Framework 3.5/4.5, use the official SharpAvi package https://www.nuget.org/packages/SharpAvi instead. If you're targeting .NET 5 but don't need Motion JPEG or MP3 audio, consider https://www.nuget.org/packages/SharpAvi.NetStandard, a port to .NET Standard 2.0 by Duc Vu Nguyen.
+      To target the .NET Framework 3.5/4.5, use the official SharpAvi package https://www.nuget.org/packages/SharpAvi instead. If you're targeting .NET 5 but don't need Motion JPEG or MP3 audio, you may be interested in https://www.nuget.org/packages/SharpAvi.NetStandard, a port to .NET Standard 2.0 by Duc Vu Nguyen.
 
       ---
 
@@ -30,7 +30,7 @@
 
       Video is created by supplying individual in-memory bitmaps (byte arrays) and audio samples. Included are implementations of encoders for Motion JPEG (requires WPF), MPEG-4 (requires external VfW codecs) and MP3 (requires LAME binaries). Asynchronous writing/encoding is supported.
     </PackageDescription>
-    <PackageProjectUrl>https://github.com/EliahKagan/SharpAvi</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/EliahKagan/SharpAvi/tree/net5</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/EliahKagan/SharpAvi.git</RepositoryUrl>
     <RepositoryBranch>2.2.1-net5</RepositoryBranch>
@@ -40,8 +40,8 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <AssemblyVersion>2.2.1.0</AssemblyVersion>
-    <FileVersion>2.2.1.0</FileVersion>
+    <AssemblyVersion>2.2.1.1</AssemblyVersion>
+    <FileVersion>2.2.1.1</FileVersion>
     <Copyright>Copyright © Vasili Maslov 2013-2022</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
