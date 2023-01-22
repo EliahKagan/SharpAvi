@@ -215,3 +215,10 @@ pip-log.txt
 .mr.developer.cfg
 packages/
 .vs/
+
+
+#############
+## CI
+#############
+
+/binaries-for-infer/
